@@ -14,7 +14,6 @@ const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
-const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 
 /**
  * Webpack Constants
@@ -134,11 +133,6 @@ module.exports = function (options) {
     },
 
     plugins: [
-
-      new ProvidePlugin({
-          "window.jQuery": "jquery",
-          Hammer: "hammerjs/hammer",
-      }),
 
       /**
        * Plugin: DefinePlugin

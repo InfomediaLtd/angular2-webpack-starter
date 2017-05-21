@@ -21,6 +21,8 @@ const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const ngcWebpack = require('ngc-webpack');
 
+const ProvidePlugin = require('webpack/lib/ProvidePlugin');
+
 /*
  * Webpack Constants
  */
@@ -204,6 +206,12 @@ module.exports = function (options) {
      * See: http://webpack.github.io/docs/configuration.html#plugins
      */
     plugins: [
+
+      new ProvidePlugin({
+          "window.jQuery": "jquery",
+          Hammer: "hammerjs/hammer",
+      }),
+
       new AssetsPlugin({
         path: helpers.root('dist'),
         filename: 'webpack-assets.json',
